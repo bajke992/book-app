@@ -21,7 +21,7 @@ hwi_oauth_login:
     prefix:   /login
 
 google_login:
-    pattern: /login/check-google
+    path: /login/check-google
 
 logout:
     path: /logout
