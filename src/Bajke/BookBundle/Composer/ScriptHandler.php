@@ -37,16 +37,6 @@ class ScriptHandler extends \Sensio\Bundle\DistributionBundle\Composer\ScriptHan
         static::executeCheck($event, $appDir);
     }
 
-    protected static function executeCommand(CommandEvent $event, $appDir, $cmd){
-        $phpFinder = new PhpExecutableFinder();
-        $php = escapeshellarg($phpFinder->find());
-        $console = escapeshellarg($appDir.'/console');
-
-        $process = new Process($php.' '.$console.' '.$cmd);
-
-        $process->run(function ($type, $buffer) use($event) { $event->getIO()->write($buffer, false); });
-    }
-
     protected static function executeCheck(CommandEvent $event, $appDir){
         $phpFinder = new PhpExecutableFinder();
         $php = escapeshellarg($phpFinder->find());
