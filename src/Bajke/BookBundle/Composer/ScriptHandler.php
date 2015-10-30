@@ -24,7 +24,7 @@ class ScriptHandler extends \Sensio\Bundle\DistributionBundle\Composer\ScriptHan
         $args = array();
 
         if($options['schema-update-force']){
-            $args[] = '--force';
+            $args[] = ' --force';
         }
 
         static::executeCommand($event, $appDir, 'doctrine:schema:update' . implode(' ', $args));
