@@ -22,7 +22,7 @@
                 <td>{{ client.secret }}</td>
                 <td>
                     <a class="btn btn-danger btn-xs" href="/profile/delete?id={{ client.getId() }}"><span class="glyphicon glyphicon-remove"></span></a>
-                    <a class="btn btn-danger btn-xs" href="/profile/delete?id={{ client.getId() }}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a class="btn btn-info btn-xs" href="/profile/view?id={{ client.getId() }}"><span class="glyphicon glyphicon-search"></span></a>
                 </td>
             </tr>
         {% endfor %}

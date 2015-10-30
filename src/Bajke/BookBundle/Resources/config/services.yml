@@ -14,6 +14,12 @@ services:
 
     app.fosoauthserver.token_controller_service:
         class: FOS\OAuthServerBundle\Controller
+
+    security.access.book_voter:
+        class: Bajke\BookBundle\Security\Voter\BookVoter
+        public: false
+        tags:
+            - { name: security.voter }
 #    book.example:
 #        class: Bajke\BookBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]

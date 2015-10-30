@@ -75,7 +75,7 @@
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" style="word-break: break-all;">
         {% if app.session.started %}
             {% for flashMessage in app.session.flashbag.get('flash') %}
                     <div class="alert alert-{{ flashMessage.alert }} alert-dismissible" role="alert">
@@ -85,7 +85,7 @@
                         <div>
                             <strong>{{ flashMessage.title }}</strong>
                         </div>
-                        {{ flashMessage.message }}
+                        {{ flashMessage.message | raw }}
                     </div>
             {% endfor %}
         {% endif %}

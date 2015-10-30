@@ -32,6 +32,34 @@ class DefaultController extends BaseController {
     }
 
     /**
+     * @Route("/profile/view", name="client_view")
+     *
+     */
+    public function clientViewAction(Request $request){
+        $client_id = $request->get('id');
+        $client = $this->getDoctrine()
+            ->getRepository('BookBundle:Client')
+            ->find(array('id' => $client_id));
+
+        if($client->getOwner()->getId() !== $this->getUser()->getId()){
+            throw new AccessDeniedException('Invalid access');
+        }
+
+        $this->flashMessage(array(
+            'alert' => 'default',
+            'title' => 'Client Help',
+            'message' =>
+                'Depending on the grant type you wish to use, use one of the following:<br />'.
+                '<strong>PASSWORD</strong><br />'.
+                '/oauth/v2/token?client_id='.$client->getPublicId().'&client_secret='.$client->getSecret().'&grant_type=password&username='.$this->getUser()->getUsername().'&password=[YOUR_PASSWORD]'.
+                '<br /><br />'.
+                '<strong>CLIENT_CREDENTIALS</strong><br />'.
+                '/oauth/v2/token?client_id='.$client->getPublicId().'&client_secret='.$client->getSecret().'&grant_type=client_credentials'
+        ));
+        return new RedirectResponse($this->generateUrl('profile'));
+    }
+
+    /**
      * @Route("/profile/client", name="create_client")
      *
      */
@@ -60,9 +88,11 @@ class DefaultController extends BaseController {
         $client_id  = $request->get("id");
         $client = $this->getDoctrine()
             ->getRepository('BookBundle:Client')
-            ->find($client_id);
-        if ($client->getOwner()->getId() !== $this->get('security.token_storage')->getToken()->getUser()->getId())
+            ->find(array('id' => $client_id));
+        if ($client->getOwner()->getId() !== $this->getUser()->getId()) {
             throw new AccessDeniedException('Invalid access');
+        }
+
         $em = $this->getDoctrine()->getManager();
 
         $tokens = $this->getDoctrine()

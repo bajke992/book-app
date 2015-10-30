@@ -23,6 +23,7 @@ class ApiController extends BaseController {
         if(array_key_exists('error', $user)){
             return $this->createApiResponse($user, 200);
         }
+
         $books = $user->getBooks();
         $response = $this->createApiResponse(['books' => $books], 200);
 
@@ -48,6 +49,8 @@ class ApiController extends BaseController {
             );
         }
 
+        $this->denyAccessUnlessGranted('view', $book, 'Unauthorized access!');
+
         $response = $this->createApiResponse($book, 200);
         return $response;
     }
@@ -66,6 +69,9 @@ class ApiController extends BaseController {
         $form = $this->createForm(new BookType(), $book);
         $this->processForm($request, $form);
         $em = $this->getDoctrine()->getManager();
+
+        $this->denyAccessUnlessGranted('create', $book, 'Unauthorized access!');
+
         $em->persist($book);
         $em->flush();
 
@@ -103,6 +109,9 @@ class ApiController extends BaseController {
         $this->processForm($request, $form);
 
         $em = $this->getDoctrine()->getManager();
+
+        $this->denyAccessUnlessGranted('update', $book, 'Unauthorized access!');
+
         $em->persist($book);
         $em->flush();
 
@@ -131,6 +140,9 @@ class ApiController extends BaseController {
 
         if($book){
             $em = $this->getDoctrine()->getManager();
+
+            $this->denyAccessUnlessGranted('delete', $book, 'Unauthorized access!');
+
             $em->remove($book);
             $em->flush();
         }

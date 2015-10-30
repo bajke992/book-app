@@ -34,6 +34,9 @@ class BookController extends BaseController {
 
         $em = $this->getDoctrine()->getManager();
         $book = new Book();
+        $book->setOwner($user);
+
+        $this->denyAccessUnlessGranted('create', $book, 'Unauthorized access!');
 
         $form = $this->createForm(new BookType(), $book, array('is_owner_disabled' => true));
 
@@ -43,7 +46,6 @@ class BookController extends BaseController {
 
             $book->setTitle($data->getTitle());
             $book->setDescription($data->getDescription());
-            $book->setOwner($user);
 
             $em->persist($book);
             $em->flush();
@@ -75,6 +77,8 @@ class BookController extends BaseController {
         if(!$book){
             throw $this->createNotFoundException('No Book fount for id: ' . $id);
         }
+
+        $this->denyAccessUnlessGranted('update', $book, 'Unauthorized access!');
 
         $form = $this->createForm(new BookType(), $book, array('is_edit' => true, 'is_owner_disabled' => true));
 
@@ -111,6 +115,8 @@ class BookController extends BaseController {
         if(!$book){
             throw $this->createNotFoundException('No Book fount for id: ' . $id);
         }
+
+        $this->denyAccessUnlessGranted('delete', $book, 'Unauthorized access!');
 
         $em->remove($book);
         $em->flush();
