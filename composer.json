@@ -22,7 +22,8 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "friendsofsymfony/rest-bundle": "@stable",
         "friendsofsymfony/oauth-server-bundle": "@stable",
-        "hwi/oauth-bundle": "0.4.*@dev"
+        "hwi/oauth-bundle": "0.4.*@dev",
+        "composer/composer": "1.0.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
@@ -43,6 +44,11 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "post-create-cmd": [
+            "php app/check.php",
+            "php app/console doctrine:database:create",
+            "php app/console doctrine:schema:update --force"
         ]
     },
     "config": {
