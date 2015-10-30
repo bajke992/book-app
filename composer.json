@@ -35,7 +35,10 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+            "Bajke\\BookBundle\\Composer\\ScriptHandler::createDB",
+            "Bajke\\BookBundle\\Composer\\ScriptHandler::updateSchema",
+            "Bajke\\BookBundle\\Composer\\ScriptHandler::checkEnv"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -43,7 +46,10 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+            "Bajke\\BookBundle\\Composer\\ScriptHandler::createDB",
+            "Bajke\\BookBundle\\Composer\\ScriptHandler::updateSchema",
+            "Bajke\\BookBundle\\Composer\\ScriptHandler::checkEnv"
         ],
         "post-create-cmd": [
             "Bajke\\BookBundle\\Composer\\ScriptHandler::createDB",
