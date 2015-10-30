@@ -2,7 +2,7 @@
     "name": "bajke/book-app",
     "license": "MIT",
     "type": "project",
-    "description": "Devana.rs job application project",
+    "description": "This is a project, not a bundle!\nSuggested method of installation:\ncomposer create-project bajke/book-app:1.*@dev\n\n Devana.rs job application project",
     "autoload": {
         "psr-4": { "": "src/" }
     },
@@ -56,7 +56,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.7-dev"
+            "dev-master": "1.0-dev"
         }
     }
 }
