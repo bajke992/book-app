@@ -1,0 +1,63 @@
+{% extends 'BookBundle::layout.html.twig' %}
+{% block title %} Registration {% endblock %}
+
+{% block body %}
+    <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register form-horizontal">
+        <div>
+            {{ form_errors(form) }}
+        </div>
+        {{ form_row(form._token) }}
+        <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{ form_label(form.email, 'Email', { 'attr': {'label_attr': 'control-label'}}) }}
+                {{ form_widget(form.email, { 'attr': {'class': 'form-control'}}) }}
+            </div>
+            {{ form_errors(form.email) }}
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{ form_label(form.username, 'Username', { 'attr': {'label_attr': 'control-label'}}) }}
+                {{ form_widget(form.username, { 'attr': {'class': 'form-control'}}) }}
+            </div>
+            {{ form_errors(form.username) }}
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{ form_label(form.realname, 'Real Name', { 'attr': {'label_attr': 'control-label'}}) }}
+                {{ form_widget(form.realname, { 'attr': {'class': 'form-control'}}) }}
+            </div>
+            {{ form_errors(form.realname) }}
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{ form_label(form.nickname, 'Nickname', { 'attr': {'label_attr': 'control-label'}}) }}
+                {{ form_widget(form.nickname, { 'attr': {'class': 'form-control'}}) }}
+            </div>
+            {{ form_errors(form.nickname) }}
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{ form_label(form.plainPassword.first, 'Password', { 'attr': {'label_attr': 'control-label'}}) }}
+                {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'}}) }}
+            </div>
+            {{ form_errors(form.plainPassword.first) }}
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{ form_label(form.plainPassword.second, 'Repeat Password', { 'attr': {'label_attr': 'control-label'}}) }}
+                {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'}}) }}
+            </div>
+            {{ form_errors(form.plainPassword.second) }}
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <input class="btn btn-success" type="submit" value="Register" />
+            </div>
+        </div>
+    </form>
+{% endblock %}

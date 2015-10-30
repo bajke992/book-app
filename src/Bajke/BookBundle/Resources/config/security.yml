@@ -1,0 +1,56 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha1
+
+    role_hierarchy:
+        ROLE_USER: ROLE_USER
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: [ ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+#        hwi:
+#            id: user.oauth_user_provider
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        main:
+            pattern: ^/
+            oauth:
+                resource_owners:
+                    google: "/login/check-google"
+                login_path: /login
+                failure_path: /login
+                default_target_path: /profile
+                provider: fos_userbundle
+                oauth_user_provider:
+#                    service: user.oauth_user_provider
+                    service: hwi_oauth.user.provider.fosub_bridge
+            form_login:
+                provider: fos_userbundle
+                csrf_provider: security.csrf.token_manager
+
+            logout:       true
+            anonymous:    true
+
+        oauth_token:
+            pattern: ^/oauth/v2/token
+            security: false
+
+        oauth_authorize:
+            pattern: ^/oauth/v2/auth
+            anonymous: true
+
+        api:
+            pattern: ^/api
+            fos_oauth: true
+            stateless: true
+#            anonymous: false
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+#        - { path: ^/api/book, roles: [ IS_AUTHENTICATED_FULLY ] }

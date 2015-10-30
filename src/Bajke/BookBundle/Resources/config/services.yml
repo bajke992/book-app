@@ -1,0 +1,19 @@
+services:
+    app.form.registration:
+        class: Bajke\BookBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: user_registration }
+
+    security.user.provider.concrete.user.oauth_user_provider:
+        class: Bajke\BookBundle\AuthProviders\OAuthProvider
+        arguments: [@session, @doctrine, @service_container]
+
+    user.oauth_user_provider:
+        class: Bajke\BookBundle\AuthProviders\OAuthProvider
+        arguments: [@session, @doctrine, @service_container]
+
+    app.fosoauthserver.token_controller_service:
+        class: FOS\OAuthServerBundle\Controller
+#    book.example:
+#        class: Bajke\BookBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
