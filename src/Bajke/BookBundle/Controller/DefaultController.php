@@ -51,10 +51,7 @@ class DefaultController extends BaseController {
             'message' =>
                 'Depending on the grant type you wish to use, use one of the following:<br />'.
                 '<strong>PASSWORD</strong><br />'.
-                '/oauth/v2/token?client_id='.$client->getPublicId().'&client_secret='.$client->getSecret().'&grant_type=password&username='.$this->getUser()->getUsername().'&password=[YOUR_PASSWORD]'.
-                '<br /><br />'.
-                '<strong>CLIENT_CREDENTIALS</strong><br />'.
-                '/oauth/v2/token?client_id='.$client->getPublicId().'&client_secret='.$client->getSecret().'&grant_type=client_credentials'
+                '/oauth/v2/token?client_id='.$client->getPublicId().'&client_secret='.$client->getSecret().'&grant_type=password&username='.$this->getUser()->getUsername().'&password=[YOUR_PASSWORD]'
         ));
         return new RedirectResponse($this->generateUrl('profile'));
     }
@@ -67,8 +64,8 @@ class DefaultController extends BaseController {
         $clientManager = $this->get('fos_oauth_server.client_manager.default');
         $client = $clientManager->createClient();
         $client->setRedirectUris(array(''));
-        $client->setAllowedGrantTypes(array('client_credentials', 'password'));
-        $client->setOwner($this->get('security.token_storage')->getToken()->getUser());
+        $client->setAllowedGrantTypes(array('password'));
+        $client->setOwner($this->getUser());
         $clientManager->updateClient($client);
 
         $this->flashMessage(array(

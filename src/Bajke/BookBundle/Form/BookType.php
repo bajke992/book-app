@@ -12,10 +12,10 @@ class BookType extends AbstractType {
         if($options['is_api']) {
             $builder
                 ->add('title', 'text')
-                ->add('description', 'textarea')
-                ->add('owner', 'text', [
-                    'disabled' => ($options['is_edit'] || $options['is_owner_disabled'])
-                ]);
+                ->add('description', 'textarea');
+//                ->add('owner', 'text', [
+//                    'disabled' => ($options['is_edit'] || $options['is_owner_disabled'])
+//                ]);
         } else {
             $builder
                 ->add('title', 'text')

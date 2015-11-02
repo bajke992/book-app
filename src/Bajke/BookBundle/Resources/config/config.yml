@@ -15,19 +15,20 @@ fos_oauth_server:
     access_token_class:  Bajke\BookBundle\Entity\AccessToken
     refresh_token_class: Bajke\BookBundle\Entity\RefreshToken
     auth_code_class:     Bajke\BookBundle\Entity\AuthCode
-    authorize:
-        form:
-            type: fos_oauth_server_authorize
-            handler: fos_oauth_server.authorize.form.handler.default
-            name: fos_oauth_server_authorize_form
+#    authorize:
+#        form:
+#            type: fos_oauth_server_authorize
+#            handler: fos_oauth_server.authorize.form.handler.default
+#            name: fos_oauth_server_authorize_form
     service:
-        storage: fos_oauth_server.storage.default
-        client_manager: fos_oauth_server.client_manager.default
-        access_token_manager: fos_oauth_server.access_token_manager.default
-        refresh_token_manager: fos_oauth_server.refresh_token_manager.default
-        auth_code_manager: fos_oauth_server.auth_code_manager.default
+#        storage: fos_oauth_server.storage.default
+#        client_manager: fos_oauth_server.client_manager.default
+#        access_token_manager: fos_oauth_server.access_token_manager.default
+#        refresh_token_manager: fos_oauth_server.refresh_token_manager.default
+#        auth_code_manager: fos_oauth_server.auth_code_manager.default
 #        user_provider: fos_user.user_manager
-        user_provider: user.oauth_user_provider
+        user_provider: fos_user.user_provider.username
+#        user_provider: user.oauth_user_provider
         options:
             supported_scopes: user
 

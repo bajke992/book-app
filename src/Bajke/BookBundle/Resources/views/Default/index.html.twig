@@ -1,6 +1,24 @@
 {% extends 'BookBundle::layout.html.twig' %}
-{% block title %} Book management application {% endblock %}
+{% block title %} Book Management Application {% endblock %}
 
 {% block body %}
-    asd
+    <div class="jumbotron">
+        <h1>Book Management Application</h1>
+        <p>
+            This web application is a simple book management platform where users make use of CRUD operations like Create, Update, View and Delete to manage the books they've read.<br />
+            Of course users need to be logged in to use these functions.<br />
+            So we provided them with some basic authentication methods:
+        </p>
+            <ul>
+                <li><p>The standard <a href="{{ path('fos_user_security_login') }}">Login</a> form</p></li>
+                <p>and</p>
+                <li><p>The option to use <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google'}) }}" >Google</a> to login</p></li>
+            </ul>
+        <p>
+            On the go?<br />
+            No probs, we got ya covered!<br />
+            There's an app for that! Well, almost,...<br />
+            We provide an OAuth2 API that interacts with the Book CRUD operations for all your Book needs!
+        </p>
+    </div>
 {% endblock %}

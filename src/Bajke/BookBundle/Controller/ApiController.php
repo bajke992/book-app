@@ -49,7 +49,7 @@ class ApiController extends BaseController {
             );
         }
 
-        $this->denyAccessUnlessGranted('view', $book, 'Unauthorized access!');
+//        $this->denyAccessUnlessGranted('view', $book, 'Unauthorized access!');
 
         $response = $this->createApiResponse($book, 200);
         return $response;
@@ -66,11 +66,12 @@ class ApiController extends BaseController {
         }
 
         $book = new Book();
-        $form = $this->createForm(new BookType(), $book);
+        $book->setOwner($user);
+        $form = $this->createForm(new BookType(), $book, array('is_api' => true, 'is_owner_disabled' => true));
         $this->processForm($request, $form);
         $em = $this->getDoctrine()->getManager();
 
-        $this->denyAccessUnlessGranted('create', $book, 'Unauthorized access!');
+//        $this->denyAccessUnlessGranted('create', $book, 'Unauthorized access!');
 
         $em->persist($book);
         $em->flush();
@@ -105,12 +106,12 @@ class ApiController extends BaseController {
             );
         }
 
-        $form = $this->createForm(new BookType(), $book, array('is_edit' => true, 'is_owner_disabled' => true));
+        $form = $this->createForm(new BookType(), $book, array('is_api' => true, 'is_edit' => true, 'is_owner_disabled' => true));
         $this->processForm($request, $form);
 
         $em = $this->getDoctrine()->getManager();
 
-        $this->denyAccessUnlessGranted('update', $book, 'Unauthorized access!');
+//        $this->denyAccessUnlessGranted('update', $book, 'Unauthorized access!');
 
         $em->persist($book);
         $em->flush();
@@ -141,7 +142,7 @@ class ApiController extends BaseController {
         if($book){
             $em = $this->getDoctrine()->getManager();
 
-            $this->denyAccessUnlessGranted('delete', $book, 'Unauthorized access!');
+//            $this->denyAccessUnlessGranted('delete', $book, 'Unauthorized access!');
 
             $em->remove($book);
             $em->flush();
