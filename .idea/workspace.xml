@@ -42,6 +42,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="OAuthProvider.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Bajke/BookBundle/AuthProviders/OAuthProvider.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.76923">
+              <caret line="59" column="43" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
@@ -82,16 +92,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppKernel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Bajke/BookBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -102,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FOSUBUserProvider.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FOSUBUserProvider.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Bajke/BookBundle/AuthProviders/FOSUBUserProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65384614">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.41371682">
+              <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
               <folding>
                 <element signature="e#50#114#0#PHP" expanded="true" />
               </folding>
@@ -114,10 +114,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Bajke/BookBundle/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.545354">
+            <state vertical-scroll-proportion="-18.961538">
               <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="e#43#85#0#PHP" expanded="true" />
@@ -168,9 +168,9 @@
         <option value="$PROJECT_DIR$/src/Bajke/BookBundle/Composer/ScriptHandler.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/Bajke/BookBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Bajke/BookBundle/AuthProviders/FOSUBUserProvider.php" />
         <option value="$PROJECT_DIR$/src/Bajke/BookBundle/Resources/config/security.yml" />
         <option value="$PROJECT_DIR$/src/Bajke/BookBundle/Resources/config/services.yml" />
+        <option value="$PROJECT_DIR$/src/Bajke/BookBundle/AuthProviders/FOSUBUserProvider.php" />
       </list>
     </option>
   </component>
@@ -816,13 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bajke/BookBundle/AuthProviders/OAuthProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.461538">
-          <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Bajke/BookBundle/Controller/RegistrationController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11283186">
@@ -1021,22 +1014,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bajke/BookBundle/AuthProviders/FOSUBUserProvider.php">
+    <entry file="file://$PROJECT_DIR$/src/Bajke/BookBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65384614">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="23" />
+        <state vertical-scroll-proportion="-18.961538">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="e#50#114#0#PHP" expanded="true" />
+            <element signature="e#43#85#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bajke/BookBundle/Entity/User.php">
+    <entry file="file://$PROJECT_DIR$/src/Bajke/BookBundle/AuthProviders/OAuthProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.545354">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="-18.76923">
+          <caret line="59" column="43" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bajke/BookBundle/AuthProviders/FOSUBUserProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41371682">
+          <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
           <folding>
-            <element signature="e#43#85#0#PHP" expanded="true" />
+            <element signature="e#50#114#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

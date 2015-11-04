@@ -30,6 +30,10 @@ class FOSUBUserProvider extends BaseClass {
 
     public function loadUserByOAuthUserResponse(UserResponseInterface $response) {
         $username = $response->getUsername();
+        $email = $response->getEmail();
+        $nickname = $response->getNickname();
+        $realname = $response->getRealName();
+
         $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
         //when the user is registrating
         if (null === $user) {
@@ -39,13 +43,23 @@ class FOSUBUserProvider extends BaseClass {
             $setter_token = $setter.'AccessToken';
             // create new user here
             $user = $this->userManager->createUser();
-            $user->$setter_id($username);
-            $user->$setter_token($response->getAccessToken());
+//            $user->$setter_id($username);
+//            $user->$setter_token($response->getAccessToken());
             //I have set all requested data with the user's username
             //modify here with relevant data
             $user->setUsername($username);
-            $user->setEmail($username);
-            $user->setPassword($username);
+            $user->setEmail($email);
+            $user->setRealname($realname);
+            $user->setNickname($nickname);
+            $user->setGoogleId($username);
+//            $user->setPassword($username);
+
+            $factory = $this->container->get('security.encoder_factory');
+            $encoder = $factory->getEncoder($user);
+            $password = $encoder->encodePassword(md5(uniqid(), $user->getSalt()));
+
+            $user->setPassword($password);
+
             $user->setEnabled(true);
             $this->userManager->updateUser($user);
             return $user;
