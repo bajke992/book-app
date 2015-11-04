@@ -12,6 +12,10 @@ services:
         class: Bajke\BookBundle\AuthProviders\OAuthProvider
         arguments: [@session, @doctrine, @service_container]
 
+    fosb_userprovider:
+        class: Bajke\BookBundle\AuthProviders\FOSUBUserProvider
+        arguments: [@fos_user.user_manager,{google: google_id}]
+
     app.fosoauthserver.token_controller_service:
         class: FOS\OAuthServerBundle\Controller
 
