@@ -27,9 +27,9 @@ security:
                 default_target_path: /profile
                 provider: fos_userbundle
                 oauth_user_provider:
-                    service: user.oauth_user_provider
+#                    service: user.oauth_user_provider
 #                    service: hwi_oauth.user.provider.fosub_bridge
-#                    service: fosb_userprovider
+                    service: fosb_userprovider
             form_login:
                 provider: fos_userbundle
                 csrf_provider: security.csrf.token_manager
