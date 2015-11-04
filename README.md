@@ -1,72 +1,43 @@
-Symfony Standard Edition
-========================
-
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new applications.
-
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
-
-What's inside?
+Book Management Application
+===========================
 --------------
+Installation:
+------------
+To install this application make sure [**composer**] [1] is installed on your PC,
+next run the following command in the Windows command prompt or Unix/OSX terminal:
+`composer create-project bajke/book-app:1.0.*@dev`
 
-The Symfony Standard Edition is configured with the following defaults:
+The application uses composer post operation script hooks to create the database, update its schema and create the assets
+and finally test the environment to see if anything is missing.
+After the installation all you need to do is run the following commands:
+`
+chmod 777 app/cache
+chmod 777 app/logs
+`
+Starting the server:
+--------------------
+To start the built-in symfony server run the following command from witin the project directory:
+`php app/console server:run`
+this will run the application in the development environment unless the SYMFONY_ENV variable is not set to 'prod',
+to run it in the production environment either set the SYMFONY_ENV variable to prod or use the following command:
+`php app/console server:run --env prod`
 
-  * An AppBundle you can use to start coding;
+The API:
+--------
+| Description | Method | URL |
+| - | - | - |
+| Returns all books related to the authenticated user | GET | /api/book |
+| Creates a new book | POST | /api/book |
+| Returns a single book that belongs to the user | GET | /api/book/{id} |
+| Updates a book | PUT/PATCH | /api/book/{id} |
+| Deletes a book | DELETE | /api/book/{id} |
 
-  * Twig as the only configured template engine;
+####**Mandatory URL Query parameters**
+/api/*?access_token=[ACCESS_TOKEN]
+To get an access token you must first be registered to the app and create a API Client in your profile
+and follow the steps outlined there.
 
-  * Doctrine ORM/DBAL;
+The API accepts JSON format body for POST requests.
 
-  * Swiftmailer;
 
-  * Annotations enabled for everything.
-
-It comes pre-configured with the following bundles:
-
-  * **FrameworkBundle** - The core Symfony framework bundle
-
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
-
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
-
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * [**AsseticBundle**][12] - Adds support for Assetic, an asset processing
-    library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/2.7/book/installation.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/2.7/book/doctrine.html
-[8]:  https://symfony.com/doc/2.7/book/templating.html
-[9]:  https://symfony.com/doc/2.7/book/security.html
-[10]: https://symfony.com/doc/2.7/cookbook/email.html
-[11]: https://symfony.com/doc/2.7/cookbook/logging/monolog.html
-[12]: https://symfony.com/doc/2.7/cookbook/assetic/asset_management.html
-[13]: https://symfony.com/doc/2.7/bundles/SensioGeneratorBundle/index.html
+[1]: https://getcomposer.org/download/
