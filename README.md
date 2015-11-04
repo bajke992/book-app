@@ -25,7 +25,7 @@ to run it in the production environment either set the SYMFONY_ENV variable to p
 The API:
 --------
 | Description | Method | URL |
-| - | - | - |
+| --- | --- | --- |
 | Returns all books related to the authenticated user | GET | /api/book |
 | Creates a new book | POST | /api/book |
 | Returns a single book that belongs to the user | GET | /api/book/{id} |
