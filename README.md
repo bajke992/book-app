@@ -14,6 +14,7 @@ After the installation all you need to do is run the following commands:
 
 `
 chmod 777 app/cache
+
 chmod 777 app/logs
 `
 
