@@ -5,6 +5,7 @@ Installation:
 ------------
 To install this application make sure [**composer**] [1] is installed on your PC,
 next run the following command in the Windows command prompt or Unix/OSX terminal:
+
 `composer create-project bajke/book-app:1.0.*@dev`
 
 The application uses composer post operation script hooks to create the database, update its schema and create the assets
@@ -17,9 +18,12 @@ chmod 777 app/logs
 Starting the server:
 --------------------
 To start the built-in symfony server run the following command from witin the project directory:
+
 `php app/console server:run`
+
 this will run the application in the development environment unless the SYMFONY_ENV variable is not set to 'prod',
 to run it in the production environment either set the SYMFONY_ENV variable to prod or use the following command:
+
 `php app/console server:run --env prod`
 
 The API:
