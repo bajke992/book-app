@@ -11,10 +11,12 @@ next run the following command in the Windows command prompt or Unix/OSX termina
 The application uses composer post operation script hooks to create the database, update its schema and create the assets
 and finally test the environment to see if anything is missing.
 After the installation all you need to do is run the following commands:
+
 `
 chmod 777 app/cache
 chmod 777 app/logs
 `
+
 Starting the server:
 --------------------
 To start the built-in symfony server run the following command from witin the project directory:
